@@ -1207,6 +1207,141 @@ tr:hover{
     text-align:center;
 
 }
+/* ========================= */
+/* GRAPH POINTS */
+/* ========================= */
+
+.graph-point{
+
+    position:absolute;
+
+    width:22px;
+    height:22px;
+
+    border-radius:50%;
+
+    cursor:pointer;
+
+    transition:0.3s;
+
+}
+
+.graph-point:hover{
+
+    transform:scale(1.3);
+
+}
+
+/* TOOLTIPS */
+
+.tooltip{
+
+    position:absolute;
+
+    bottom:35px;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    background:#111827;
+
+    color:white;
+
+    padding:12px 14px;
+
+    border-radius:12px;
+
+    font-size:14px;
+
+    line-height:1.7;
+
+    min-width:170px;
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transition:0.3s;
+
+    border:1px solid rgba(255,255,255,0.1);
+
+    box-shadow:0 0 20px rgba(0,0,0,0.3);
+
+    z-index:10;
+
+}
+
+.graph-point:hover .tooltip{
+
+    opacity:1;
+    visibility:visible;
+
+}
+
+/* LLAMA */
+
+.llama-point{
+
+    background:#22c55e;
+
+    box-shadow:0 0 20px #22c55e;
+
+    left:82%;
+    bottom:88%;
+
+}
+
+/* QWEN */
+
+.qwen-point{
+
+    background:#facc15;
+
+    box-shadow:0 0 20px #facc15;
+
+    left:22%;
+    bottom:82%;
+
+}
+
+/* GEMMA */
+
+.gemma-point{
+
+    background:#fb923c;
+
+    box-shadow:0 0 20px #fb923c;
+
+    left:20%;
+    bottom:76%;
+
+}
+
+/* MINILM */
+
+.minilm-point{
+
+    background:#eab308;
+
+    box-shadow:0 0 20px #eab308;
+
+    left:16%;
+    bottom:79%;
+
+}
+
+/* PHI */
+
+.phi-point{
+
+    background:#ef4444;
+
+    box-shadow:0 0 20px #ef4444;
+
+    left:14%;
+    bottom:64%;
+
+}
 
 </style>
 </head>
@@ -1824,43 +1959,63 @@ Accuracy vs. Generation Time
 
   <!-- POINTS -->
 
-  <!-- llama -->
-  <div class="chart-point glow-orange"
-  style="left:15%; bottom:52%;"
-  data-model="Llama3.2:1B | 60% | Fast but unreliable">
-  </div>
+ <!-- LLAMA -->
 
-  <!-- phi -->
-  <div class="chart-point glow-red"
-  style="left:22%; bottom:38%;"
-  data-model="Phi4-mini | 40% | Slow & inconsistent">
-  </div>
+<div class="graph-point llama-point">
 
-  <!-- qwen -->
-  <div class="chart-point glow-yellow"
-  style="left:18%; bottom:60%;"
-  data-model="Qwen2.5:3B | 60% | Best balance">
-  </div>
-
-  <div class="chart-point glow-yellow"
-  style="left:25%; bottom:60%;"
-  data-model="Qwen2.5:7B | 60% | Slightly slower">
-  </div>
-
-  <!-- gemma -->
-  <div class="chart-point glow-green"
-  style="left:88%; bottom:100%;"
-  data-model="Gemma3:4B | 100% | Highest accuracy">
-  </div>
-
-  <!-- TOOLTIP -->
-  <div class="tooltip" id="tooltip"></div>
+    <div class="tooltip">
+        <strong>Llama 3.2:1B</strong><br>
+        Accuracy: 88%<br>
+        Time: 4.8s
+    </div>
 
 </div>
 
-<p class="chart-caption">
-Trade-off between accuracy and generation time across different model configurations
-</p>
+<!-- QWEN -->
+
+<div class="graph-point qwen-point">
+
+    <div class="tooltip">
+        <strong>Qwen3:1.7b</strong><br>
+        Accuracy: 82%<br>
+        Time: 6.2s
+    </div>
+
+</div>
+
+<!-- GEMMA -->
+
+<div class="graph-point gemma-point">
+
+    <div class="tooltip">
+        <strong>Gemma3:1b</strong><br>
+        Accuracy: 76%<br>
+        Time: 5.9s
+    </div>
+
+</div>
+
+<!-- MINI LM -->
+
+<div class="graph-point minilm-point">
+
+    <div class="tooltip">
+        <strong>Qwen + all-minilm</strong><br>
+        Accuracy: 79%<br>
+        Time: 4.5s
+    </div>
+
+</div>
+
+<!-- PHI -->
+
+<div class="graph-point phi-point">
+
+    <div class="tooltip">
+        <strong>Phi4-mini</strong><br>
+        Accuracy: 64%<br>
+        Time: 4.1s
+    </div>
 
 </div>
 <!-- ========================= -->
