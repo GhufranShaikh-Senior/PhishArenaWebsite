@@ -1168,12 +1168,7 @@ tr:hover{
 
 }
 
-.selected-status{
 
-    color:#4ade80;
-    font-weight:bold;
-
-}
 /* STATUS COLORS */
 
 .selected-status{
@@ -1865,54 +1860,70 @@ Trade-off between accuracy and generation time across different model configurat
 </p>
 
 </div>
-<!-- TABLE -->
-<div class="table-container">
+<div class="model-table-container">
 
- <!-- TABLE -->
+<table class="model-table">
 
-    <div class="model-table-container">
+    <!-- HEADER -->
+    <thead>
 
-        <table class="model-table">
-          <tr class="selected-row">
+        <tr>
 
-    <td>Llama 3.2:1B</td>
-    <td>~82–88%</td>
-    <td>Very Fast</td>
-    <td class="selected-status">✅ Selected</td>
+            <th>Model</th>
+            <th>Accuracy</th>
+            <th>Speed</th>
+            <th>Status</th>
 
-</tr>
+        </tr>
 
-<tr>
+    </thead>
 
-    <td>Qwen2.5:3B</td>
-    <td>~88–90%</td>
-    <td>Medium</td>
-    <td class="alt-status"> Alternative</td>
+    <!-- BODY -->
+    <tbody>
 
-</tr>
+        <!-- LLAMA -->
+        <tr class="selected-row">
 
-<tr>
+            <td>Llama 3.2:1B</td>
+            <td>~82–88%</td>
+            <td>Very Fast</td>
+            <td class="selected-status">✅ Selected</td>
 
-    <td>Gemma3:4B</td>
-    <td>~95%</td>
-    <td>Very Slow</td>
-    <td class="bad-status"> Not Practical</td>
+        </tr>
 
-</tr>
+        <!-- QWEN -->
+        <tr>
 
-<tr>
+            <td>Qwen2.5:3B</td>
+            <td>~88–90%</td>
+            <td>Medium</td>
+            <td class="alt-status">⚠ Alternative</td>
 
-    <td>Phi4-mini</td>
-    <td>~60–70%</td>
-    <td>Medium</td>
-    <td class="warn-status"> Inconsistent</td>
+        </tr>
 
-</tr>
+        <!-- GEMMA -->
+        <tr>
 
-            
-          
+            <td>Gemma3:4B</td>
+            <td>~95%</td>
+            <td>Very Slow</td>
+            <td class="bad-status">✖ Not Practical</td>
 
-        </table>
+        </tr>
+
+        <!-- PHI -->
+        <tr>
+
+            <td>Phi4-mini</td>
+            <td>~60–70%</td>
+            <td>Medium</td>
+            <td class="warn-status">△ Inconsistent</td>
+
+        </tr>
+
+    </tbody>
+
+</table>
 
 </div>
 
