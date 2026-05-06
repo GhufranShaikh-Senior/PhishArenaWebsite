@@ -1678,51 +1678,64 @@ Trade-off between accuracy and generation time across different model configurat
 <!-- TABLE -->
 <div class="table-container">
 
-<table>
+< <!-- TABLE -->
 
-<tr>
-<th>Model</th>
-<th>Accuracy</th>
-<th>Response Time</th>
-<th>Performance</th>
-</tr>
+    <div class="model-table-container">
 
-<tr>
-<td>Llama3.2:1B</td>
-<td><span class="badge low">50–60%</span></td>
-<td>&lt;1s</td>
-<td>Not reliable</td>
-</tr>
+        <table class="model-table">
 
-<tr>
-<td>Phi4-mini</td>
-<td><span class="badge medium">~60%</span></td>
-<td>Slow</td>
-<td>Inconsistent</td>
-</tr>
+            <thead>
 
-<tr>
-<td>Gemma3:4B</td>
-<td><span class="badge high">95–100%</span></td>
-<td>~6 min</td>
-<td>Very accurate</td>
-</tr>
+                <tr>
+                    <th>Model</th>
+                    <th>Accuracy</th>
+                    <th>Speed</th>
+                    <th>Status</th>
+                </tr>
 
-<tr>
-<td>Qwen2.5:3B</td>
-<td><span class="badge best">87.5%</span></td>
-<td>2–4 min</td>
-<td>Best Choice</td>
-</tr>
+            </thead>
 
-<tr>
-<td>Qwen2.5:7B</td>
-<td><span class="badge high">88–90%</span></td>
-<td>5–10 min</td>
-<td>Slightly slower</td>
-</tr>
+            <tbody>
 
-</table>
+                <tr class="selected-row">
+
+                    <td>Llama 3.2:1B</td>
+                    <td>~82–88%</td>
+                    <td>Very Fast</td>
+                    <td class="selected-status">✅ Selected</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Qwen2.5:3B</td>
+                    <td>~88–90%</td>
+                    <td>Medium</td>
+                    <td>Alternative</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Gemma3:4B</td>
+                    <td>~95%</td>
+                    <td>Very Slow</td>
+                    <td>Not Practical</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Phi4-mini</td>
+                    <td>~60–70%</td>
+                    <td>Medium</td>
+                    <td>Inconsistent</td>
+
+                </tr>
+
+            </tbody>
+
+        </table>
 
 </div>
 
@@ -1733,9 +1746,11 @@ Trade-off between accuracy and generation time across different model configurat
 Chosen Model: llama3.2:1B
 </h3>
 
-<p style="line-height:1.8; color:#d1d5db;">
+<p>
 
-llama3.2:1B was selected because it provides the best balance between phishing detection accuracy and response time, making it more suitable for real-time interaction compared to larger but slower models.
+Llama 3.2:1B was selected as the primary AI model due to its fast response time,
+lightweight deployment, and smooth real-time interaction through Ollama,
+making it suitable for interactive phishing awareness simulations.
 
 </p>
 
