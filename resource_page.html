@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>PhishArena | Resources</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* RESET */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:
+    radial-gradient(circle at top,
+    rgba(139,92,246,0.18),
+    transparent 40%),
+    #070b2a;
+
+    color:white;
+    overflow-x:hidden;
+    min-height:100vh;
+}
+
+/* BACKGROUND */
+
+.bg-animation{
+    position:fixed;
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    top:0;
+    left:0;
+    z-index:-1;
+}
+
+.bg-animation span{
+    position:absolute;
+    display:block;
+    width:6px;
+    height:6px;
+    background:#c084fc;
+    border-radius:50%;
+    animation:float 14s linear infinite;
+    opacity:0.45;
+}
+
+.bg-animation span:nth-child(1){
+    left:10%;
+    animation-duration:10s;
+    top:90%;
+}
+
+.bg-animation span:nth-child(2){
+    left:25%;
+    animation-duration:13s;
+    top:95%;
+}
+
+.bg-animation span:nth-child(3){
+    left:50%;
+    animation-duration:11s;
+    top:92%;
+}
+
+.bg-animation span:nth-child(4){
+    left:75%;
+    animation-duration:15s;
+    top:94%;
+}
+
+.bg-animation span:nth-child(5){
+    left:90%;
+    animation-duration:12s;
+    top:90%;
+}
+
+@keyframes float{
+    0%{
+        transform:translateY(0);
+        opacity:0;
+    }
+
+    50%{
+        opacity:0.5;
+    }
+
+    100%{
+        transform:translateY(-110vh);
+        opacity:0;
+    }
+}
+
+/* HEADER */
+
+header{
+    text-align:center;
+    padding:60px 20px 30px;
+}
+
+header h1{
+    font-family:'Orbitron',sans-serif;
+    font-size:52px;
+    color:#d946ef;
+
+    text-shadow:
+    0 0 12px rgba(217,70,239,0.7),
+    0 0 30px rgba(168,85,247,0.5);
+}
+
+/* CONTAINER */
+
+.resources-container{
+    width:90%;
+    max-width:1300px;
+    margin:auto;
+    padding-bottom:80px;
+}
+
+/* BACK BUTTON */
+
+.back-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+
+    padding:18px 30px;
+
+    border-radius:18px;
+
+    text-decoration:none;
+    color:white;
+
+    background:linear-gradient(135deg,#38bdf8,#0ea5e9);
+
+    font-weight:600;
+
+    margin:30px 0 60px;
+
+    transition:0.35s;
+
+    box-shadow:0 0 25px rgba(56,189,248,0.35);
+}
+
+.back-btn:hover{
+    transform:translateY(-5px);
+}
+
+/* GRID */
+
+.resources-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:35px;
+}
+
+/* CARD */
+
+.resource-card{
+    background:rgba(255,255,255,0.05);
+
+    border:1px solid rgba(168,85,247,0.25);
+
+    border-radius:28px;
+
+    padding:35px;
+
+    transition:0.4s;
+
+    backdrop-filter:blur(10px);
+}
+
+.resource-card:hover{
+    transform:translateY(-10px);
+
+    box-shadow:
+    0 0 30px rgba(168,85,247,0.35);
+}
+
+.resource-card h3{
+    font-size:28px;
+    margin-bottom:20px;
+    color:white;
+}
+
+.resource-card p{
+    color:#d1d5db;
+    line-height:1.9;
+    margin-bottom:28px;
+    min-height:120px;
+}
+
+/* BUTTON */
+
+.resource-btn{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    width:100%;
+
+    padding:18px;
+
+    border-radius:16px;
+
+    text-decoration:none;
+
+    background:linear-gradient(135deg,#d946ef,#a855f7);
+
+    color:white;
+
+    font-weight:700;
+
+    transition:0.35s;
+
+    box-shadow:
+    0 0 20px rgba(217,70,239,0.3);
+}
+
+.resource-btn:hover{
+    transform:translateY(-4px);
+
+    box-shadow:
+    0 0 35px rgba(217,70,239,0.55);
+}
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+    header h1{
+        font-size:36px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- BACKGROUND -->
+
+<div class="bg-animation">
+
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+
+</div>
+
+<!-- HEADER -->
+
+<header>
+
+<h1>Project Resources</h1>
+
+</header>
+
+<!-- CONTENT -->
+
+<div class="resources-container">
+
+<a href="preview.html" class="back-btn">
+
+← Back to Home
+
+</a>
+
+<div class="resources-grid">
+
+<!-- RESEARCH REPORT -->
+
+<div class="resource-card">
+
+<h3>Research Report</h3>
+
+<p>
+
+Complete project documentation including methodology,
+system architecture, implementation, AI evaluation,
+and experimental results.
+
+</p>
+
+<a href="https://stuuobedu-my.sharepoint.com/:w:/g/personal/202208128_stu_uob_edu_bh/IQAoTm-t0t4mTbza25vak3YBASlWOEQCe8N_20nV_NAo9Cw?e=0OAOhJ"
+target="_blank"
+class="resource-btn">
+
+View Report →
+
+</a>
+
+</div>
+
+<!-- GITHUB -->
+
+<div class="resource-card">
+
+<h3>GitHub Repository</h3>
+
+<p>
+
+Source code for the PhishArena platform including frontend,
+backend, AI integration, and deployment configuration.
+
+</p>
+
+<a href="https://github.com/Aldana-althawadi/PhishArena-_Game"
+target="_blank"
+class="resource-btn">
+
+Open GitHub →
+
+</a>
+
+</div>
+
+<!-- POSTER -->
+
+<div class="resource-card">
+
+<h3>Project Poster</h3>
+
+<p>
+
+Academic poster summarizing project objectives,
+architecture, implementation, and key findings.
+
+</p>
+
+<a href="#"
+class="resource-btn">
+
+View Poster →
+
+</a>
+
+</div>
+
+<!-- DEMO VIDEO -->
+
+<div class="resource-card">
+
+<h3>Demo Video</h3>
+
+<p>
+
+Demonstration of phishing simulation workflows,
+AI evaluation, and platform interaction.
+
+</p>
+
+<a href="#"
+class="resource-btn">
+
+Watch Demo →
+
+</a>
+
+</div>
+
+<!-- OLLAMA -->
+
+<div class="resource-card">
+
+<h3>Ollama Runtime</h3>
+
+<p>
+
+Local LLM runtime used to securely deploy and run
+AI models inside the PhishArena platform.
+
+</p>
+
+<a href="https://ollama.com"
+target="_blank"
+class="resource-btn">
+
+Visit Ollama →
+
+</a>
+
+</div>
+
+<!-- FLASK -->
+
+<div class="resource-card">
+
+<h3>Flask Framework</h3>
+
+<p>
+
+Python backend framework used for routing,
+AI integration, and system communication.
+
+</p>
+
+<a href="https://flask.palletsprojects.com/"
+target="_blank"
+class="resource-btn">
+
+Visit Flask →
+
+</a>
+
+</div>
+
+<!-- UBUNTU -->
+
+<div class="resource-card">
+
+<h3>Ubuntu Environment</h3>
+
+<p>
+
+Ubuntu operating system used for deployment,
+email simulation services, and AI hosting.
+
+</p>
+
+<a href="https://ubuntu.com"
+target="_blank"
+class="resource-btn">
+
+Visit Ubuntu →
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,2052 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Phish Arena</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+  margin:0;
+  font-family:'Poppins', sans-serif;
+  background:linear-gradient(270deg,#05010a,#0a0f2c,#0f1b4d);
+  background-size:600% 600%;
+  animation:bgMove 14s ease infinite;
+  color:white;
+  overflow-x:hidden;
+}
+
+@keyframes bgMove{
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+
+/* mouse animation */
+.cursor{
+  position:fixed;
+  width:10px;
+  height:10px;
+  border-radius:50%;
+  background:#c084fc;
+  pointer-events:none;
+  transform:translate(-50%,-50%);
+  opacity:0.7;
+  z-index:9999;
+}
+
+/* HEADER */
+
+header{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  display:flex;
+  justify-content:center;
+  padding:35px 0;
+  z-index:100;
+  border-bottom:1px solid rgba(168,85,247,0.3);
+}
+
+.header-center{
+  width:100%;
+  max-width:1500px;
+
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+
+  padding:0 70px;
+  box-sizing:border-box;
+}
+
+/* LEFT TEXT */
+
+.header-text{
+  text-align:left;
+}
+
+.header-text h2{
+  margin:0 0 18px 0;
+  color:white;
+  font-size:26px;
+  font-weight:800;
+  letter-spacing:1px;
+}
+
+.header-text p{
+  margin:8px 0;
+  color:#d1d5db;
+  font-size:16px;
+}
+
+/* RIGHT LOGOS */
+
+.header-logos{
+  display:flex;
+  align-items:center;
+  gap:16px;
+}
+
+.uob-logo{
+  width:95px;
+  height:auto;
+  object-fit:contain;
+}
+
+.phish-logo{
+  width:95px;
+  height:auto;
+  object-fit:contain;
+}
+
+/* HERO */
+
+.hero{
+  padding-top:310px;
+  text-align:center;
+}
+
+.hero h1{
+  font-family:'Orbitron', sans-serif;
+  color:#c084fc;
+  font-size:56px;
+  line-height:1.4;
+  max-width:1250px;
+  margin:auto;
+
+  text-shadow:
+  0 0 10px rgba(192,132,252,0.7),
+  0 0 30px rgba(168,85,247,0.5);
+}
+
+/* sections */
+section{
+  padding:80px 40px;
+  max-width:1100px;
+  margin:auto;
+  opacity:0;
+  transform:translateY(40px);
+  transition:1s;
+}
+
+section.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+h2{
+  text-align:center;
+  font-family:'Orbitron';
+  color:#a855f7;
+  margin-bottom:30px;
+}
+
+/* cards */
+.card{
+  background:rgba(255,255,255,0.05);
+  padding:20px;
+  border-radius:20px;
+  text-align:center;
+  transition:0.3s;
+  backdrop-filter:blur(8px);
+}
+
+.card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 0 20px #a855f7;
+}
+
+/* grid */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
+  text-align:center;
+}
+
+.card img{
+  width:60px;
+  margin-bottom:10px;
+}
+
+/* frontend */
+.small-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:15px;
+  justify-items:center;
+  text-align:center;
+}
+
+.small-card{
+  background:rgba(255,255,255,0.05);
+  padding:20px;
+  border-radius:15px;
+  width:100%;
+  transition:0.3s;
+}
+
+.small-card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 0 15px #a855f7;
+}
+
+.small-card img{
+  width:40px;
+}
+
+/* flow */
+.flow{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  align-items:center;
+  gap:15px;
+}
+
+.step{
+  background:#a855f7;
+  color:black;
+  padding:12px 18px;
+  border-radius:12px;
+  font-weight:bold;
+  transition:0.3s;
+}
+
+.step:hover{
+  transform:scale(1.08);
+  box-shadow:0 0 15px #a855f7;
+}
+
+.arrow{
+  color:#a855f7;
+  font-size:20px;
+}
+
+/* video */
+.video-box{
+  max-width:750px;
+  margin:auto;
+}
+
+video{
+  width:100%;
+  border-radius:15px;
+}
+
+/* button */
+.btn{
+  display:inline-block;
+  padding:12px 25px;
+  background:#a855f7;
+  border-radius:10px;
+  text-decoration:none;
+  color:white;
+  margin-top:15px;
+  transition:0.3s;
+}
+
+.btn:hover{
+  transform:translateY(-5px);
+  box-shadow:0 0 15px #a855f7;
+}
+
+/* screenshots */
+.screenshots{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:20px;
+}
+
+.screenshots img{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+  border-radius:15px;
+  transition:0.3s;
+}
+
+.screenshots img:hover{
+  transform:scale(1.05);
+}
+
+/* responsive */
+@media(max-width:768px){
+
+  header{
+    flex-direction:column;
+    gap:20px;
+    text-align:center;
+  }
+
+  .header-left{
+    text-align:center;
+  }
+
+  .small-grid{
+    grid-template-columns:1fr;
+  }
+
+  .hero h1{
+    font-size:28px;
+  }
+}
+/* OBJECTIVES */
+
+.objectives-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:25px;
+  margin-top:40px;
+}
+
+.objective-card{
+  background:rgba(255,255,255,0.05);
+  padding:25px;
+  border-radius:20px;
+  position:relative;
+  overflow:hidden;
+  transition:0.4s;
+  backdrop-filter:blur(8px);
+}
+
+.objective-card:hover{
+  transform:translateY(-10px) scale(1.02);
+  box-shadow:0 0 25px #a855f7;
+}
+
+.objective-number{
+  width:55px;
+  height:55px;
+  border-radius:50%;
+  background:linear-gradient(135deg,#a855f7,#7c3aed);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:22px;
+  font-weight:bold;
+  margin-bottom:20px;
+  box-shadow:0 0 15px #a855f7;
+}
+
+.objective-card h3{
+  color:#ffffff;
+  margin-bottom:15px;
+}
+
+.objective-card p{
+  color:#d1d5db;
+  line-height:1.7;
+}
+/* methodologies */
+
+.methodology-flow{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:25px;
+  margin-top:30px;
+}
+
+.method-box{
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(168,85,247,0.3);
+  border-radius:20px;
+  padding:25px;
+  transition:0.4s;
+}
+
+.method-box:hover{
+  transform:translateY(-8px);
+  box-shadow:0 0 25px rgba(168,85,247,0.5);
+}
+
+.method-title{
+  text-align:center;
+  font-weight:bold;
+  margin-bottom:25px;
+  color:#c084fc;
+  font-size:18px;
+}
+
+.method-step{
+  background:rgba(168,85,247,0.12);
+  border-radius:12px;
+  padding:14px;
+  text-align:center;
+  margin:10px 0;
+}
+
+.method-arrow{
+  text-align:center;
+  color:#a855f7;
+  font-size:22px;
+}
+
+.support-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:18px;
+  margin-top:35px;
+}
+
+.support-card{
+  background:rgba(255,255,255,0.05);
+  border-radius:15px;
+  padding:18px;
+  text-align:center;
+  transition:0.3s;
+}
+
+.support-card:hover{
+  transform:scale(1.03);
+  box-shadow:0 0 15px rgba(168,85,247,0.5);
+}
+/* DEMONSTRATION WORKFLOW */
+
+.demo-workflow{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  align-items:start;
+  gap:25px;
+  margin-top:50px;
+}
+
+.workflow-step{
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(168,85,247,0.25);
+  border-radius:20px;
+  padding:30px 25px;
+  text-align:center;
+  transition:0.4s;
+  backdrop-filter:blur(8px);
+
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-start;
+  align-items:center;
+
+  min-height:320px;
+}
+.workflow-step h3{
+  min-height:60px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.workflow-step p{
+  line-height:1.9;
+}
+
+.workflow-step:hover{
+  transform:translateY(-10px);
+  box-shadow:0 0 20px rgba(168,85,247,0.5);
+}
+
+.workflow-number{
+  width:55px;
+  height:55px;
+  border-radius:50%;
+  background:linear-gradient(135deg,#a855f7,#7c3aed);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin:0 auto 20px auto;
+  font-size:24px;
+  font-weight:bold;
+}
+
+.workflow-step h3{
+  color:#c084fc;
+  margin-bottom:15px;
+}
+
+.workflow-step p{
+  color:#d1d5db;
+  line-height:1.7;
+}
+
+.workflow-arrow{
+  display:none;
+  color:#a855f7;
+}
+@media(max-width:1100px){
+
+  .demo-workflow{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+}
+
+@media(max-width:700px){
+
+  .demo-workflow{
+    grid-template-columns:1fr;
+  }
+
+}
+
+.environment-tags{
+  display:flex;
+  justify-content:center;
+  gap:15px;
+  flex-wrap:wrap;
+  margin-top:45px;
+}
+
+.env-tag{
+  background:rgba(168,85,247,0.15);
+  border:1px solid rgba(168,85,247,0.25);
+  padding:12px 18px;
+  border-radius:30px;
+  transition:0.3s;
+}
+
+.env-tag:hover{
+  transform:translateY(-5px);
+  box-shadow:0 0 15px rgba(168,85,247,0.5);
+}
+/* AI MODEL EVALUATION */
+
+.chart-container{
+  background:rgba(255,255,255,0.04);
+  border-radius:25px;
+  padding:40px;
+  margin-top:40px;
+}
+
+.chart-title{
+  text-align:center;
+  color:#38bdf8;
+  margin-bottom:40px;
+}
+
+.chart-area{
+  position:relative;
+  height:450px;
+  border-left:2px solid rgba(255,255,255,0.15);
+  border-bottom:2px solid rgba(255,255,255,0.15);
+  margin:30px;
+}
+
+.chart-point{
+  position:absolute;
+  width:22px;
+  height:22px;
+  border-radius:50%;
+  cursor:pointer;
+  transition:0.3s;
+  box-shadow:0 0 15px currentColor;
+}
+
+.chart-point:hover{
+  transform:scale(1.4);
+}
+
+.tooltip{
+  position:absolute;
+  background:#111827;
+  padding:15px;
+  border-radius:12px;
+  color:white;
+  width:220px;
+  display:none;
+  border:1px solid #a855f7;
+  line-height:1.6;
+  z-index:10;
+}
+
+.table-container{
+  overflow-x:auto;
+  margin-top:50px;
+}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+  margin-top:20px;
+}
+
+th{
+  background:#6b21a8;
+  padding:18px;
+  text-align:left;
+}
+
+td{
+  padding:18px;
+  border-bottom:1px solid rgba(255,255,255,0.08);
+}
+
+tr:hover{
+  background:rgba(255,255,255,0.03);
+}
+
+.badge{
+  padding:8px 14px;
+  border-radius:10px;
+  font-weight:bold;
+}
+
+.low{
+  background:#7f1d1d;
+  color:#fca5a5;
+}
+
+.medium{
+  background:#78350f;
+  color:#facc15;
+}
+
+.high{
+  background:#14532d;
+  color:#86efac;
+}
+
+.best{
+  background:#1e3a8a;
+  color:#93c5fd;
+}
+/* CHART */
+
+.chart-wrapper{
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(168,85,247,0.3);
+  border-radius:30px;
+  padding:50px;
+  margin-top:40px;
+}
+
+.chart-title{
+  text-align:center;
+  color:#38bdf8;
+  font-size:22px;
+  margin-bottom:40px;
+}
+
+.chart-area{
+  position:relative;
+  height:500px;
+  border-left:2px solid rgba(255,255,255,0.15);
+  border-bottom:2px solid rgba(255,255,255,0.15);
+  margin:60px;
+}
+
+.grid-line{
+  position:absolute;
+  width:100%;
+  height:1px;
+  background:rgba(168,85,247,0.15);
+}
+
+.vertical-line{
+  position:absolute;
+  height:100%;
+  width:1px;
+  background:rgba(168,85,247,0.12);
+}
+
+.chart-point{
+  position:absolute;
+  width:22px;
+  height:22px;
+  border-radius:50%;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.chart-point:hover{
+  transform:scale(1.5);
+}
+
+.glow-green{
+  background:#22c55e;
+  box-shadow:0 0 18px #22c55e;
+}
+
+.glow-yellow{
+  background:#facc15;
+  box-shadow:0 0 18px #facc15;
+}
+
+.glow-orange{
+  background:#fb923c;
+  box-shadow:0 0 18px #fb923c;
+}
+
+.glow-red{
+  background:#ef4444;
+  box-shadow:0 0 18px #ef4444;
+}
+
+.tooltip{
+  position:absolute;
+  display:none;
+  background:#111827;
+  color:white;
+  padding:12px;
+  border-radius:12px;
+  border:1px solid #a855f7;
+  width:220px;
+  z-index:20;
+  line-height:1.6;
+}
+
+.y-label{
+  position:absolute;
+  left:-65px;
+  color:#d1d5db;
+  font-size:14px;
+}
+
+.x-label{
+  position:absolute;
+  bottom:-40px;
+  color:#d1d5db;
+  font-size:14px;
+}
+
+.chart-caption{
+  text-align:center;
+  color:#d1d5db;
+  margin-top:30px;
+  font-style:italic;
+}
+/* FUTURE WORK */
+
+.future-summary{
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(168,85,247,0.3);
+  border-radius:30px;
+  padding:45px;
+  text-align:center;
+  margin-bottom:45px;
+}
+
+.future-summary h3{
+  color:#c084fc;
+  font-size:36px;
+  margin-bottom:25px;
+}
+
+.future-summary p{
+  color:#d1d5db;
+  line-height:2;
+  max-width:1000px;
+  margin:auto;
+}
+
+.future-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+  gap:35px;
+  margin-bottom:45px;
+}
+
+.future-card{
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(168,85,247,0.25);
+  border-radius:28px;
+  padding:35px;
+  transition:0.4s;
+}
+
+.future-card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 0 25px rgba(168,85,247,0.45);
+}
+
+.glow-card{
+  box-shadow:0 0 20px rgba(168,85,247,0.35);
+}
+
+.future-card h3{
+  color:#38bdf8;
+  margin-bottom:25px;
+  font-size:28px;
+}
+
+.future-card ul{
+  list-style:none;
+  padding:0;
+}
+
+.future-card li{
+  margin-bottom:22px;
+  color:#d1d5db;
+  line-height:1.8;
+  position:relative;
+  padding-left:28px;
+}
+
+.future-card li::before{
+  content:'▸';
+  position:absolute;
+  left:0;
+  color:#38bdf8;
+}
+
+.impact-box{
+  background:linear-gradient(90deg,
+  rgba(76,29,149,0.8),
+  rgba(30,64,175,0.35));
+  border:1px solid rgba(168,85,247,0.35);
+  border-radius:28px;
+  padding:40px;
+  text-align:center;
+}
+
+.impact-box p{
+  color:#d1d5db;
+  line-height:2;
+  font-size:18px;
+}
+
+.impact-box span{
+  color:#d946ef;
+  font-weight:bold;
+  font-size:22px;
+}
+/* TEAM SECTION */
+
+.team-title-box{
+  text-align:center;
+  margin:50px 0;
+}
+
+.team-title-box h3{
+  color:#38bdf8;
+  font-size:38px;
+  margin-bottom:10px;
+}
+
+.team-title-box p{
+  color:#d1d5db;
+}
+
+.team-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:35px;
+  align-items:stretch;
+}
+@media(max-width:900px){
+
+  .team-grid{
+    grid-template-columns:1fr;
+  }
+
+}
+
+.team-card{
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(168,85,247,0.25);
+  border-radius:28px;
+  padding:40px 30px;
+  text-align:center;
+  transition:0.4s;
+}
+
+.team-card:hover{
+  transform:translateY(-10px);
+  box-shadow:0 0 25px rgba(168,85,247,0.4);
+}
+
+.team-avatar{
+  width:90px;
+  height:90px;
+  border-radius:50%;
+  border:2px solid #c026d3;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin:0 auto 25px auto;
+  font-size:34px;
+  font-weight:bold;
+  color:white;
+}
+
+.team-card h3{
+  margin-bottom:10px;
+  color:white;
+}
+
+.team-card p{
+  color:#d1d5db;
+  margin-bottom:25px;
+}
+
+.team-links{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+
+.team-links a{
+  color:#38bdf8;
+  text-decoration:none;
+  transition:0.3s;
+}
+
+.team-links a:hover{
+  color:#c084fc;
+}
+/* SUPERVISOR */
+
+.supervisor-card{
+  background:linear-gradient(135deg,
+  rgba(76,29,149,0.75),
+  rgba(30,41,99,0.65));
+  border:1px solid rgba(56,189,248,0.35);
+  border-radius:28px;
+  padding:45px;
+  margin-top:35px;
+  transition:0.4s;
+}
+
+.supervisor-card:hover{
+  box-shadow:0 0 25px rgba(56,189,248,0.25);
+}
+
+.supervisor-top{
+  display:flex;
+  align-items:center;
+  gap:35px;
+  flex-wrap:wrap;
+}
+
+.supervisor-avatar{
+  width:110px;
+  height:110px;
+  border-radius:50%;
+  background:linear-gradient(135deg,#38bdf8,#60a5fa);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:42px;
+  font-weight:bold;
+  color:white;
+  box-shadow:0 0 20px rgba(56,189,248,0.55);
+}
+
+.supervisor-info h2{
+  margin-bottom:22px;
+  color:white;
+}
+
+.supervisor-links{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+
+.supervisor-links a{
+  color:#38bdf8;
+  text-decoration:none;
+  transition:0.3s;
+}
+
+.supervisor-links a:hover{
+  color:#c084fc;
+}
+
+.supervisor-message{
+  margin-top:35px;
+  padding-top:30px;
+  border-top:1px solid rgba(56,189,248,0.25);
+}
+
+.supervisor-message p{
+  color:#d1d5db;
+  line-height:2;
+  font-size:17px;
+}
+/* HERO BUTTONS */
+
+.hero-buttons{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:35px;
+  margin-top:55px;
+  margin-bottom:80px;
+  flex-wrap:wrap;
+}
+
+.hero-btn{
+  min-width:280px;
+  padding:26px 40px;
+  border-radius:22px;
+  text-decoration:none;
+  font-size:30px;
+  font-weight:700;
+  transition:0.35s;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:14px;
+}
+
+/* PRIMARY */
+
+.primary-btn{
+  background:linear-gradient(135deg,#d946ef,#a855f7);
+  color:white;
+  box-shadow:0 0 30px rgba(217,70,239,0.45);
+}
+
+.primary-btn:hover{
+  transform:translateY(-6px) scale(1.03);
+  box-shadow:0 0 45px rgba(217,70,239,0.7);
+}
+
+/* SECONDARY */
+
+.secondary-btn{
+  border:2px solid #38bdf8;
+  color:#38bdf8;
+  background:rgba(255,255,255,0.03);
+}
+
+.secondary-btn:hover{
+  transform:translateY(-6px);
+  background:rgba(56,189,248,0.08);
+  box-shadow:0 0 25px rgba(56,189,248,0.35);
+}
+
+
+</style>
+</head>
+
+<body>
+
+<div class="cursor" id="cursor"></div>
+
+<header>
+
+  <div class="header-center">
+
+    <div class="header-logos">
+
+      <img src="UOBlogo.png" class="uob-logo">
+
+      <img src="Logo.png" class="phish-logo">
+
+    </div>
+
+    <div class="header-text">
+
+      <h2>University of Bahrain</h2>
+
+      <p>College of Information Technology</p>
+
+      <p>Department of Information Systems</p>
+
+    </div>
+
+  </div>
+
+</header>
+
+<!-- HERO -->
+<div class="hero">
+
+<h1>
+Phish Arena: An Interactive AI-Based Platform for Phishing Awareness and Detection
+</h1>
+
+</div>
+<!-- HERO BUTTONS -->
+
+<div class="hero-buttons">
+
+  <!-- RESOURCES -->
+  <a href="resource_page.html" class="hero-btn primary-btn">
+
+    📄 View Resources
+
+  </a>
+
+  <!-- TEAM -->
+  <a href="#team-section" class="hero-btn secondary-btn">
+
+    👥 Meet the Team
+
+  </a>
+
+</div>
+
+<!-- ABSTRACT -->
+<section>
+
+<h2>Abstract</h2>
+
+<div class="card">
+
+<p>
+Phish Arena is an interactive cybersecurity platform designed to simulate real-world phishing attacks and improve user awareness through practical experience. Instead of relying only on theoretical knowledge, the system provides structured, scenario-based training where users engage with realistic phishing situations.
+</p>
+
+<p>
+Powered by AI and Large Language Models (LLMs), the platform evaluates user responses based on professionalism, realism, and completeness, providing intelligent feedback to improve understanding of social engineering attacks.
+</p>
+
+</div>
+
+</section>
+<!-- OBJECTIVES -->
+<section>
+
+<h2>Project Objectives</h2>
+
+<div class="objectives-grid">
+
+  <div class="objective-card">
+    <div class="objective-number">1</div>
+    <h3>Improve Phishing Awareness</h3>
+    <p>
+      Enhance users’ ability to identify and respond to phishing attacks through realistic training scenarios.
+    </p>
+  </div>
+
+  <div class="objective-card">
+    <div class="objective-number">2</div>
+    <h3>Provide Interactive Learning</h3>
+    <p>
+      Create an engaging and practical environment that goes beyond traditional theoretical awareness methods.
+    </p>
+  </div>
+
+  <div class="objective-card">
+    <div class="objective-number">3</div>
+    <h3>Simulate Real Email Systems</h3>
+    <p>
+      Replicate real-world email environments such as Outlook and Thunderbird to improve hands-on experience.
+    </p>
+  </div>
+
+  <div class="objective-card">
+    <div class="objective-number">4</div>
+    <h3>Integrate AI-Based Feedback</h3>
+    <p>
+      Use AI and LLM technologies to analyze responses and provide intelligent feedback and explanations.
+    </p>
+  </div>
+
+</div>
+
+</section>
+<!-- PROBLEMS SECTION -->
+<section>
+
+<h2>Problem Statement</h2>
+
+<div class="objectives-grid">
+
+  <div class="objective-card">
+
+    <div class="objective-number">1</div>
+
+    <h3>Lack of Practical Training</h3>
+
+    <p>
+      Many cybersecurity awareness programs focus mainly on theoretical knowledge rather than practical phishing detection skills.
+    </p>
+
+  </div>
+
+  <div class="objective-card">
+
+    <div class="objective-number">2</div>
+
+    <h3>Evolving Phishing Techniques</h3>
+
+    <p>
+      Attackers continuously improve phishing methods, making malicious emails harder for users to identify and detect.
+    </p>
+
+  </div>
+
+  <div class="objective-card">
+
+    <div class="objective-number">3</div>
+
+    <h3>Human Error in Cybersecurity</h3>
+
+    <p>
+      Human mistakes remain one of the leading causes of cybersecurity breaches, highlighting the need for better awareness solutions.
+    </p>
+
+  </div>
+
+</div>
+
+</section>
+<!-- KEY FEATURES -->
+<section>
+
+<h2>Key Features</h2>
+
+<div class="objectives-grid">
+
+  <div class="objective-card">
+
+    <div class="objective-number">📧</div>
+
+    <h3>Realistic Email Simulation</h3>
+
+    <p>
+      Simulates real-world email environments to help users experience phishing scenarios in a practical way.
+    </p>
+
+  </div>
+
+  <div class="objective-card">
+
+    <div class="objective-number">🤖</div>
+
+    <h3>AI-Powered Feedback</h3>
+
+    <p>
+      Uses AI and Large Language Models to evaluate user responses and provide intelligent explanations and feedback.
+    </p>
+
+  </div>
+
+  <div class="objective-card">
+
+    <div class="objective-number">🎮</div>
+
+    <h3>Interactive Learning</h3>
+
+    <p>
+      Provides a gamified and engaging learning experience instead of traditional static cybersecurity training methods.
+    </p>
+
+  </div>
+
+  <div class="objective-card">
+
+    <div class="objective-number">🛡️</div>
+
+    <h3>Phishing Awareness Training</h3>
+
+    <p>
+      Helps users improve their ability to identify suspicious emails and reduce risks caused by phishing attacks.
+    </p>
+
+  </div>
+
+  <div class="objective-card">
+
+    <div class="objective-number">⚡</div>
+
+    <h3>Instant Response Evaluation</h3>
+
+    <p>
+      Analyzes submitted responses instantly and generates quick feedback to improve user decision-making skills.
+    </p>
+
+  </div>
+
+</div>
+
+</section>
+<!-- METHODOLOGIES AND APPROACH -->
+<section>
+
+<h2>Methodologies and Approach</h2>
+
+<div class="card" style="padding:40px;">
+
+<h3 style="
+text-align:center;
+color:#c084fc;
+margin-bottom:35px;
+">
+PhishArena System Architecture
+</h3>
+
+<div class="methodology-flow">
+
+  <!-- EMAIL MODE -->
+  <div class="method-box">
+
+    <div class="method-title">📧 Email-Based Mode</div>
+
+    <div class="method-step">User Device</div>
+    <div class="method-arrow">↓</div>
+
+    <div class="method-step">Thunderbird Client</div>
+    <div class="method-arrow">↓</div>
+
+    <div class="method-step">Postfix SMTP Server</div>
+    <div class="method-arrow">↓</div>
+
+    <div class="method-step">Maildir Storage</div>
+
+  </div>
+
+  <!-- CORE -->
+  <div class="method-box">
+
+    <div class="method-title">⚙️ Core Services</div>
+
+    <div class="method-step">Flask Web Application</div>
+    <div class="method-arrow">↓</div>
+
+    <div class="method-step">AI Evaluation Module</div>
+    <div class="method-arrow">↓</div>
+
+    <div class="method-step">Feedback & Scores</div>
+
+  </div>
+
+  <!-- WEB -->
+  <div class="method-box">
+
+    <div class="method-title">🌐 Web Testing Mode</div>
+
+    <div class="method-step">Browser Interface</div>
+    <div class="method-arrow">↓</div>
+
+    <div class="method-step">Message Submission</div>
+    <div class="method-arrow">↓</div>
+
+    <div class="method-step">Instant AI Response</div>
+
+  </div>
+
+</div>
+
+<!-- SUPPORT -->
+<div class="support-grid">
+
+<div class="support-card">📥 Dovecot IMAP Server</div>
+
+<div class="support-card">🗂️ Case Data / Profiles</div>
+
+<div class="support-card">📊 Logs & Progress Storage</div>
+
+<div class="support-card">🖥️ Dashboard</div>
+
+</div>
+
+<p style="
+margin-top:35px;
+line-height:1.9;
+color:#d1d5db;
+text-align:center;
+">
+The PhishArena architecture combines realistic email communication with AI-powered evaluation services using Flask, SMTP/IMAP servers, and Large Language Models (LLMs).
+</p>
+
+</div>
+
+</section>
+
+<!-- TECHNOLOGY -->
+<section>
+
+<h2>Technology Used</h2>
+
+<h3>AI & Backend</h3>
+
+<div class="grid">
+
+<div class="card">
+<img src="https://cdn-icons-png.flaticon.com/512/4712/4712109.png">
+<p>Ollama (LLM)</p>
+</div>
+
+<div class="card">
+<img src="https://cdn-icons-png.flaticon.com/512/5968/5968350.png">
+<p>Flask (Python)</p>
+</div>
+
+</div>
+
+<h3 style="margin-top:40px;">System Environment</h3>
+
+<div class="grid">
+
+<div class="card">
+<img src="https://assets.ubuntu.com/v1/29985a98-ubuntu-logo32.png">
+<p>Ubuntu Operating System</p>
+</div>
+
+</div>
+
+<h3 style="margin-top:40px;">Frontend</h3>
+
+<div class="small-grid">
+
+<div class="small-card">
+<img src="https://cdn-icons-png.flaticon.com/512/732/732212.png">
+<p>HTML</p>
+</div>
+
+<div class="small-card">
+<img src="https://cdn-icons-png.flaticon.com/512/732/732190.png">
+<p>CSS</p>
+</div>
+
+<div class="small-card">
+<img src="https://cdn-icons-png.flaticon.com/512/5968/5968292.png">
+<p>JavaScript</p>
+</div>
+
+</div>
+
+</section>
+<!-- SYSTEM DEPLOYMENT -->
+<section>
+
+<h2>System Deployment</h2>
+
+<div class="objectives-grid">
+
+  <div class="objective-card">
+
+    <div class="objective-number">🐧</div>
+
+    <h3>Ubuntu Environment</h3>
+
+    <p>
+      The platform is deployed on Ubuntu Linux to provide a stable and secure environment for backend services and AI integration.
+    </p>
+
+  </div>
+
+  <div class="objective-card">
+
+    <div class="objective-number">📧</div>
+
+    <h3>Postfix SMTP</h3>
+
+    <p>
+      Postfix is used to manage SMTP communication and simulate realistic phishing email delivery scenarios.
+    </p>
+
+  </div>
+
+  <div class="objective-card">
+
+    <div class="objective-number">📥</div>
+
+    <h3>Dovecot IMAP</h3>
+
+    <p>
+      Dovecot handles IMAP services and mailbox access for receiving and managing user email interactions.
+    </p>
+
+  </div>
+
+  <div class="objective-card">
+
+    <div class="objective-number">🤖</div>
+
+    <h3>Ollama LLM</h3>
+
+    <p>
+      Ollama powers the AI evaluation process by analyzing user responses and generating intelligent feedback.
+    </p>
+
+  </div>
+
+  <div class="objective-card">
+
+    <div class="objective-number">⚡</div>
+
+    <h3>Flask Backend</h3>
+
+    <p>
+      Flask connects all system components together and processes communication between the frontend and AI services.
+    </p>
+
+  </div>
+
+  <div class="objective-card">
+
+    <div class="objective-number">🌐</div>
+
+    <h3>Web Interface</h3>
+
+    <p>
+      The web interface allows users to interact with the platform, submit responses, and receive evaluation results instantly.
+    </p>
+
+  </div>
+
+</div>
+<!-- EXPERIMENTAL DEMONSTRATION WORKFLOW -->
+<section>
+
+<h2>Experimental Demonstration Workflow</h2>
+
+<p style="
+text-align:center;
+color:#d1d5db;
+max-width:850px;
+margin:0 auto 50px auto;
+line-height:1.8;
+">
+
+The PhishArena platform operates within a dedicated experimental environment that integrates Ubuntu-based services, AI evaluation modules, and email simulation systems. The following workflow demonstrates how the platform is launched and used during testing and demonstrations.
+
+</p>
+
+<div class="demo-workflow">
+
+  <!-- STEP 1 -->
+  <div class="workflow-step">
+
+    <div class="workflow-number">1</div>
+
+    <h3>Launch Virtual Machine</h3>
+
+    <p>
+      Start the Ubuntu-based environment containing Flask services, SMTP/IMAP servers, and AI modules.
+    </p>
+
+  </div>
+
+  <div class="workflow-arrow">→</div>
+
+  <!-- STEP 2 -->
+  <div class="workflow-step">
+
+    <div class="workflow-number">2</div>
+
+    <h3>Open Platform Interface</h3>
+
+    <p>
+      Access PhishArena through Thunderbird or the web-based interface for phishing simulation.
+    </p>
+
+  </div>
+
+  <div class="workflow-arrow">→</div>
+
+  <!-- STEP 3 -->
+  <div class="workflow-step">
+
+    <div class="workflow-number">3</div>
+
+    <h3>AI Evaluation Process</h3>
+
+    <p>
+      The system analyzes user responses using Large Language Models and generates intelligent feedback.
+    </p>
+
+  </div>
+
+  <div class="workflow-arrow">→</div>
+
+  <!-- STEP 4 -->
+  <div class="workflow-step">
+
+    <div class="workflow-number">4</div>
+
+    <h3>View Results & Progress</h3>
+
+    <p>
+      Users receive feedback, scores, and progress tracking after completing phishing scenarios.
+    </p>
+
+  </div>
+
+</div>
+
+<!-- ENVIRONMENT TAGS -->
+<div class="environment-tags">
+
+  <div class="env-tag">🐧 Ubuntu VM</div>
+
+  <div class="env-tag">📧 SMTP / IMAP</div>
+
+  <div class="env-tag">🤖 Ollama LLM</div>
+
+  <div class="env-tag">⚡ Flask Backend</div>
+
+</div>
+
+</section>
+
+</section>
+<!-- AI MODEL EVALUATION -->
+<section>
+
+<h2>AI Model Evaluation</h2>
+
+<p style="
+text-align:center;
+max-width:900px;
+margin:0 auto 50px auto;
+line-height:1.8;
+color:#d1d5db;
+">
+
+Different Large Language Models (LLMs) were tested to evaluate their phishing detection performance based on accuracy, response time, and practical usability within the PhishArena platform.
+
+</p>
+
+<!-- GRAPH -->
+<div class="chart-container">
+
+
+
+<!-- CHART -->
+<div class="chart-wrapper">
+
+<h3 class="chart-title">
+Accuracy vs. Generation Time
+</h3>
+
+<div class="chart-area">
+
+  <!-- GRID -->
+  <div class="grid-line" style="bottom:20%;"></div>
+  <div class="grid-line" style="bottom:40%;"></div>
+  <div class="grid-line" style="bottom:60%;"></div>
+  <div class="grid-line" style="bottom:80%;"></div>
+
+  <div class="vertical-line" style="left:25%;"></div>
+  <div class="vertical-line" style="left:50%;"></div>
+  <div class="vertical-line" style="left:75%;"></div>
+
+  <!-- Y LABELS -->
+  <div class="y-label" style="bottom:0%;">0%</div>
+  <div class="y-label" style="bottom:20%;">20%</div>
+  <div class="y-label" style="bottom:40%;">40%</div>
+  <div class="y-label" style="bottom:60%;">60%</div>
+  <div class="y-label" style="bottom:80%;">80%</div>
+  <div class="y-label" style="bottom:100%;">100%</div>
+
+  <!-- X LABELS -->
+  <div class="x-label" style="left:0%;">0s</div>
+  <div class="x-label" style="left:30%;">10s</div>
+  <div class="x-label" style="left:60%;">20s</div>
+  <div class="x-label" style="left:95%;">30s</div>
+
+  <!-- POINTS -->
+
+  <!-- llama -->
+  <div class="chart-point glow-orange"
+  style="left:15%; bottom:52%;"
+  data-model="Llama3.2:1B | 60% | Fast but unreliable">
+  </div>
+
+  <!-- phi -->
+  <div class="chart-point glow-red"
+  style="left:22%; bottom:38%;"
+  data-model="Phi4-mini | 40% | Slow & inconsistent">
+  </div>
+
+  <!-- qwen -->
+  <div class="chart-point glow-yellow"
+  style="left:18%; bottom:60%;"
+  data-model="Qwen2.5:3B | 60% | Best balance">
+  </div>
+
+  <div class="chart-point glow-yellow"
+  style="left:25%; bottom:60%;"
+  data-model="Qwen2.5:7B | 60% | Slightly slower">
+  </div>
+
+  <!-- gemma -->
+  <div class="chart-point glow-green"
+  style="left:88%; bottom:100%;"
+  data-model="Gemma3:4B | 100% | Highest accuracy">
+  </div>
+
+  <!-- TOOLTIP -->
+  <div class="tooltip" id="tooltip"></div>
+
+</div>
+
+<p class="chart-caption">
+Trade-off between accuracy and generation time across different model configurations
+</p>
+
+</div>
+<!-- TABLE -->
+<div class="table-container">
+
+<table>
+
+<tr>
+<th>Model</th>
+<th>Accuracy</th>
+<th>Response Time</th>
+<th>Performance</th>
+</tr>
+
+<tr>
+<td>Llama3.2:1B</td>
+<td><span class="badge low">50–60%</span></td>
+<td>&lt;1s</td>
+<td>Not reliable</td>
+</tr>
+
+<tr>
+<td>Phi4-mini</td>
+<td><span class="badge medium">~60%</span></td>
+<td>Slow</td>
+<td>Inconsistent</td>
+</tr>
+
+<tr>
+<td>Gemma3:4B</td>
+<td><span class="badge high">95–100%</span></td>
+<td>~6 min</td>
+<td>Very accurate</td>
+</tr>
+
+<tr>
+<td>Qwen2.5:3B</td>
+<td><span class="badge best">87.5%</span></td>
+<td>2–4 min</td>
+<td>Best Choice</td>
+</tr>
+
+<tr>
+<td>Qwen2.5:7B</td>
+<td><span class="badge high">88–90%</span></td>
+<td>5–10 min</td>
+<td>Slightly slower</td>
+</tr>
+
+</table>
+
+</div>
+
+<!-- CHOSEN MODEL -->
+<div class="card" style="margin-top:40px;">
+
+<h3 style="color:#22c55e;">
+Chosen Model: Qwen2.5:3B
+</h3>
+
+<p style="line-height:1.8; color:#d1d5db;">
+
+Qwen2.5:3B was selected because it provides the best balance between phishing detection accuracy and response time, making it more suitable for real-time interaction compared to larger but slower models.
+
+</p>
+
+</div>
+<!-- FUTURE WORK & IMPACT -->
+<section>
+
+<h2>Future Enhancements & Impact</h2>
+
+<!-- SUMMARY -->
+<div class="future-summary">
+
+<h3>Summary</h3>
+
+<p>
+
+PhishArena demonstrates how AI-powered phishing awareness platforms can provide realistic cybersecurity training through interactive simulations and intelligent response evaluation. By integrating LLM technologies with email-based environments, the platform enhances phishing detection skills while improving user awareness in a practical and engaging way.
+
+</p>
+
+</div>
+
+<!-- TWO CARDS -->
+<div class="future-grid">
+
+  <!-- FUTURE FEATURES -->
+  <div class="future-card glow-card">
+
+    <h3>Future Enhancements</h3>
+
+    <ul>
+
+      <li>Multi-language phishing scenario support</li>
+
+      <li>Advanced phishing email generation using AI</li>
+
+      <li>User performance analytics dashboard</li>
+
+      <li>Expanded real-world phishing case library</li>
+
+    </ul>
+
+  </div>
+
+  <!-- AI & SCALABILITY -->
+  <div class="future-card">
+
+    <h3>Intelligence & Scalability</h3>
+
+    <ul>
+
+      <li>Support for larger and more advanced LLM models</li>
+
+      <li>Adaptive AI feedback based on user behavior</li>
+
+      <li>Cloud-based deployment for larger environments</li>
+
+      <li>Real-time phishing campaign simulation</li>
+
+    </ul>
+
+  </div>
+
+</div>
+
+<!-- IMPACT -->
+<div class="impact-box">
+
+<p>
+
+<span>Impact:</span>
+
+PhishArena bridges the gap between theoretical cybersecurity awareness and practical phishing detection by creating an immersive AI-driven training environment that improves user readiness against phishing attacks.
+
+</p>
+
+</div>
+
+</section>
+<!-- ABOUT TEAM -->
+<section id="team-section">
+
+<h2>About the Project, Team & Instructor</h2>
+
+<!-- PROJECT INFO -->
+<div class="future-summary">
+
+<p>
+
+This project is a <span style="color:#d946ef; font-weight:bold;">
+Final Year Senior Project
+</span>
+
+completed during Semester 2 of the Academic Year 2025/2026 at the
+
+<span style="color:#d946ef; font-weight:bold;">
+College of Information Technology — University of Bahrain.
+</span>
+
+</p>
+
+</div>
+
+<!-- TEAM TITLE -->
+<div class="team-title-box">
+
+<h3>Development Team</h3>
+
+<p>Cybersecurity Graduates - Batch 2026</p>
+
+</div>
+
+<!-- TEAM CARDS -->
+<div class="team-grid">
+
+  <!-- GHUFRAN -->
+  <div class="team-card">
+
+    <div class="team-avatar">GS</div>
+
+    <h3>Ghufran Shaikh Mohammed</h3>
+
+    
+
+    <div class="team-links">
+
+      <a href="mailto:ghufranshaikh551@gmail.com">
+      ✉ Email me
+      </a>
+
+      <a href="https://www.linkedin.com/in/ghufran-shaikh-52bb63352"
+      target="_blank">
+      🔗 LinkedIn Profile
+      </a>
+
+      <a href="https://drive.google.com/file/d/1yTzo7_Dh9C6d4UKiQWASxCq1oLmrTvR_/view?usp=sharing"
+      target="_blank">
+      📄 View Resume
+      </a>
+
+    </div>
+
+  </div>
+
+  <!-- ALDANA -->
+  <div class="team-card">
+
+    <div class="team-avatar">AA</div>
+
+    <h3>Aldana Yusuf Althawadi</h3>
+
+    
+
+    <div class="team-links">
+
+      <a href="mailto:aldanaalthawadi@gmail.com">
+      ✉ Email me
+      </a>
+
+      <a href="https://www.linkedin.com/in/aldana-althawadi-aba8152b9"
+      target="_blank">
+      🔗 LinkedIn Profile
+      </a>
+
+      <a href="https://1drv.ms/f/c/6d8f6cdc015e1d14/IgDkSG9humb_QpY92kT-ZbkqAdM8t6ocnxmf2BlADfiEhBw?e=Z9YDsg"
+      target="_blank">
+      📄 View Resume
+      </a>
+
+    </div>
+
+  </div>
+
+  <!-- HAYA -->
+  <div class="team-card">
+
+    <div class="team-avatar">HA</div>
+
+    <h3>Haya Mohamed Alkaabi</h3>
+
+
+
+    <div class="team-links">
+
+      <a href="#">
+      ✉ Contact Information Coming Soon
+      </a>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- PROJECT SUPERVISOR -->
+<section>
+
+<div class="team-title-box">
+
+<h3>Project Supervisor</h3>
+
+</div>
+
+<div class="supervisor-card">
+
+  <!-- LEFT -->
+  <div class="supervisor-top">
+
+    <div class="supervisor-avatar">
+      AA
+    </div>
+
+    <div class="supervisor-info">
+
+      <h2>Dr. Abdulla Khalifa Aldoseri</h2>
+
+      <div class="supervisor-links">
+
+        <a href="#">
+        👨‍🏫 Assistant Professor
+        </a>
+
+        <a href="mailto:akaldoseri@uob.edu.bh">
+        ✉ akaldoseri@uob.edu.bh
+        </a>
+
+        <a href="https://cit.uob.edu.bh/faculty/faculty-profile/?faculty=mr-abdullah-al-doseri"
+        target="_blank">
+        🌐 UoB Faculty Profile
+        </a>
+
+        <a href="https://www.linkedin.com/in/dr-abdullah-aldoseri-0ab6706a/">
+        🔗 LinkedIn Profile
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- MESSAGE -->
+  <div class="supervisor-message">
+
+    <p>
+
+    We sincerely appreciate Dr. Abdulla Khalifa Aldoseri for his continuous supervision, valuable feedback, and academic guidance throughout the development of PhishArena. His support and expertise played a significant role in shaping the project and improving its technical and research aspects.
+
+    </p>
+
+  </div>
+
+</div>
+
+</section>
+
+</section>
+
+
+
+<script>
+
+/* mouse */
+const cursor = document.getElementById('cursor');
+
+document.addEventListener('mousemove', e => {
+  cursor.style.left = e.clientX + 'px';
+  cursor.style.top = e.clientY + 'px';
+});
+
+/* reveal animation */
+const sections = document.querySelectorAll('section');
+
+window.addEventListener('scroll', () => {
+
+  sections.forEach(sec => {
+
+    const top = sec.getBoundingClientRect().top;
+
+    if(top < window.innerHeight - 100){
+      sec.classList.add('show');
+    }
+
+  });
+
+});
+/* chart tooltip */
+
+const points = document.querySelectorAll('.chart-point');
+const tooltip = document.getElementById('tooltip');
+
+points.forEach(point => {
+
+  point.addEventListener('mousemove', e => {
+
+    tooltip.style.display = 'block';
+    tooltip.style.left = e.pageX + 20 + 'px';
+    tooltip.style.top = e.pageY - 20 + 'px';
+
+    tooltip.innerText = point.dataset.model;
+
+  });
+
+  point.addEventListener('mouseleave', () => {
+    tooltip.style.display = 'none';
+  });
+
+});
+
+</script>
+
+</body>
+</html>
