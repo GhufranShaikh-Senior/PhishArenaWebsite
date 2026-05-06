@@ -1112,96 +1112,99 @@ tr:hover{
 
 }
 
-.model-table{
+/* ========================= */
+/* TABLE STATUS COLORS */
+/* ========================= */
 
-    width:100%;
-
-    border-collapse:collapse;
-
-    background:rgba(255,255,255,0.04);
-
-    border-radius:25px;
-
-    overflow:hidden;
-
-}
-
-.model-table th{
-
-    background:rgba(168,85,247,0.25);
-
-    color:#d946ef;
-
-    padding:22px;
-
-    font-size:18px;
-
-}
-
-.model-table td{
-
-    padding:22px;
-
-    border-bottom:1px solid rgba(255,255,255,0.05);
-
-    color:white;
-
-    font-size:16px;
-
-}
-
-.model-table tr{
-
-    transition:0.35s;
-
-}
-
-.model-table tr:hover{
-
-    background:rgba(255,255,255,0.05);
-
-}
-
-.selected-row{
-
-    background:rgba(56,189,248,0.08);
-
-}
-
-
-/* STATUS COLORS */
+/* GREEN */
 
 .selected-status{
 
+    background:rgba(34,197,94,0.15);
     color:#4ade80;
+
+    border:1px solid rgba(34,197,94,0.45);
+
+    padding:8px 18px;
+
+    border-radius:12px;
+
     font-weight:700;
+
+    display:inline-block;
+
+    min-width:70px;
+
+    text-align:center;
 
 }
 
-/* QWEN */
+/* YELLOW */
 
 .alt-status{
 
+    background:rgba(250,204,21,0.12);
     color:#facc15;
+
+    border:1px solid rgba(250,204,21,0.4);
+
+    padding:8px 18px;
+
+    border-radius:12px;
+
     font-weight:700;
+
+    display:inline-block;
+
+    min-width:70px;
+
+    text-align:center;
 
 }
 
-/* GEMMA */
-
-.bad-status{
-
-    color:#ef4444;
-    font-weight:700;
-
-}
-
-/* PHI */
+/* ORANGE */
 
 .warn-status{
 
+    background:rgba(251,146,60,0.12);
     color:#fb923c;
+
+    border:1px solid rgba(251,146,60,0.4);
+
+    padding:8px 18px;
+
+    border-radius:12px;
+
     font-weight:700;
+
+    display:inline-block;
+
+    min-width:70px;
+
+    text-align:center;
+
+}
+
+/* RED */
+
+.bad-status{
+
+    background:rgba(239,68,68,0.12);
+    color:#ef4444;
+
+    border:1px solid rgba(239,68,68,0.4);
+
+    padding:8px 18px;
+
+    border-radius:12px;
+
+    font-weight:700;
+
+    display:inline-block;
+
+    min-width:70px;
+
+    text-align:center;
 
 }
 
@@ -1860,70 +1863,101 @@ Trade-off between accuracy and generation time across different model configurat
 </p>
 
 </div>
+<!-- ========================= -->
+<!-- MODEL COMPARISON TABLE -->
+<!-- ========================= -->
+
 <div class="model-table-container">
 
-<table class="model-table">
+    <table class="model-table">
 
-    <!-- HEADER -->
-    <thead>
+        <thead>
 
-        <tr>
+            <tr>
 
-            <th>Model</th>
-            <th>Accuracy</th>
-            <th>Speed</th>
-            <th>Status</th>
+                <th>Model Configuration</th>
+                <th>Accuracy</th>
+                <th>Avg Generation Time</th>
 
-        </tr>
+            </tr>
 
-    </thead>
+        </thead>
 
-    <!-- BODY -->
-    <tbody>
+        <tbody>
 
-        <!-- LLAMA -->
-        <tr class="selected-row">
+            <!-- LLAMA -->
 
-            <td>Llama 3.2:1B</td>
-            <td>~82–88%</td>
-            <td>Very Fast</td>
-            <td class="selected-status">✅ Selected</td>
+            <tr>
 
-        </tr>
+                <td>Llama 3.2:1B + mxbai-embed-large</td>
 
-        <!-- QWEN -->
-        <tr>
+                <td>
+                    <span class="selected-status">88%</span>
+                </td>
 
-            <td>Qwen2.5:3B</td>
-            <td>~88–90%</td>
-            <td>Medium</td>
-            <td class="alt-status">⚠ Alternative</td>
+                <td>4.8s</td>
 
-        </tr>
+            </tr>
 
-        <!-- GEMMA -->
-        <tr>
+            <!-- QWEN -->
 
-            <td>Gemma3:4B</td>
-            <td>~95%</td>
-            <td>Very Slow</td>
-            <td class="bad-status">✖ Not Practical</td>
+            <tr>
 
-        </tr>
+                <td>Qwen3:1.7b + mxbai-embed-large</td>
 
-        <!-- PHI -->
-        <tr>
+                <td>
+                    <span class="alt-status">82%</span>
+                </td>
 
-            <td>Phi4-mini</td>
-            <td>~60–70%</td>
-            <td>Medium</td>
-            <td class="warn-status">△ Inconsistent</td>
+                <td>6.2s</td>
 
-        </tr>
+            </tr>
 
-    </tbody>
+            <!-- GEMMA -->
 
-</table>
+            <tr>
+
+                <td>Gemma3:1b + mxbai-embed-large</td>
+
+                <td>
+                    <span class="warn-status">76%</span>
+                </td>
+
+                <td>5.9s</td>
+
+            </tr>
+
+            <!-- MINI LM -->
+
+            <tr>
+
+                <td>Qwen3:1.7b + all-minilm</td>
+
+                <td>
+                    <span class="alt-status">79%</span>
+                </td>
+
+                <td>4.5s</td>
+
+            </tr>
+
+            <!-- PHI -->
+
+            <tr>
+
+                <td>Phi4-mini + all-minilm</td>
+
+                <td>
+                    <span class="bad-status">64%</span>
+                </td>
+
+                <td>4.1s</td>
+
+            </tr>
+
+        </tbody>
+
+    </table>
 
 </div>
 
