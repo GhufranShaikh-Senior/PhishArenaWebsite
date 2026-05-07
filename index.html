@@ -1372,6 +1372,57 @@ tr:hover{
     z-index:2;
 
 }
+/* BACK TO TOP BUTTON */
+
+.back-to-top{
+
+  position:fixed;
+
+  right:30px;
+  bottom:30px;
+
+  width:58px;
+  height:58px;
+
+  border-radius:50%;
+
+  background:linear-gradient(135deg,#d946ef,#7c3aed);
+
+  color:white;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  font-size:26px;
+
+  cursor:pointer;
+
+  box-shadow:0 0 20px rgba(217,70,239,0.5);
+
+  z-index:999;
+
+  transition:0.3s;
+
+  opacity:0;
+  visibility:hidden;
+
+}
+
+.back-to-top:hover{
+
+  transform:translateY(-6px) scale(1.08);
+
+  box-shadow:0 0 30px rgba(217,70,239,0.8);
+
+}
+
+.back-to-top.show{
+
+  opacity:1;
+  visibility:visible;
+
+}
 
 </style>
 </head>
@@ -2477,8 +2528,39 @@ points.forEach(point => {
   });
 
 });
+/* BACK TO TOP BUTTON */
+
+const backToTop = document.getElementById('backToTop');
+
+window.addEventListener('scroll', () => {
+
+  if(window.scrollY > 300){
+
+    backToTop.classList.add('show');
+
+  } else {
+
+    backToTop.classList.remove('show');
+
+  }
+
+});
+
+backToTop.addEventListener('click', () => {
+
+  window.scrollTo({
+    top:0,
+    behavior:'smooth'
+  });
+
+});
 
 </script>
+<!-- BACK TO TOP -->
+
+<div class="back-to-top" id="backToTop">
+  ↑
+</div>
 
 </body>
 </html>
