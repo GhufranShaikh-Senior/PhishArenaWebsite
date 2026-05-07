@@ -1376,51 +1376,53 @@ tr:hover{
 
 .back-to-top{
 
-  position:fixed;
+    position:fixed;
 
-  right:30px;
-  bottom:30px;
+    right:25px;
+    bottom:25px;
 
-  width:58px;
-  height:58px;
+    width:65px;
+    height:65px;
 
-  border-radius:50%;
+    border-radius:50%;
 
-  background:linear-gradient(135deg,#d946ef,#7c3aed);
+    background:linear-gradient(135deg,#00d4ff,#a855f7);
 
-  color:white;
+    color:white;
 
-  display:flex;
-  align-items:center;
-  justify-content:center;
+    display:flex;
+    align-items:center;
+    justify-content:center;
 
-  font-size:26px;
+    font-size:32px;
+    font-weight:bold;
 
-  cursor:pointer;
+    cursor:pointer;
 
-  box-shadow:0 0 20px rgba(217,70,239,0.5);
+    z-index:99999;
 
-  z-index:999;
+    opacity:1;
+    visibility:visible;
 
-  transition:0.3s;
+    box-shadow:
+    0 0 15px rgba(0,212,255,0.6),
+    0 0 35px rgba(168,85,247,0.6);
 
-  opacity:0;
-  visibility:hidden;
+    transition:0.3s ease;
+
+    border:2px solid rgba(255,255,255,0.2);
+
+    backdrop-filter:blur(10px);
 
 }
 
 .back-to-top:hover{
 
-  transform:translateY(-6px) scale(1.08);
+    transform:translateY(-8px) scale(1.1);
 
-  box-shadow:0 0 30px rgba(217,70,239,0.8);
-
-}
-
-.back-to-top.show{
-
-  opacity:1;
-  visibility:visible;
+    box-shadow:
+    0 0 25px rgba(0,212,255,0.9),
+    0 0 50px rgba(168,85,247,0.9);
 
 }
 
@@ -2531,20 +2533,6 @@ points.forEach(point => {
 /* BACK TO TOP BUTTON */
 
 const backToTop = document.getElementById('backToTop');
-
-window.addEventListener('scroll', () => {
-
-  if(window.scrollY > 300){
-
-    backToTop.classList.add('show');
-
-  } else {
-
-    backToTop.classList.remove('show');
-
-  }
-
-});
 
 backToTop.addEventListener('click', () => {
 
